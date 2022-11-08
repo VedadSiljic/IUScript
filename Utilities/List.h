@@ -11,6 +11,16 @@ template < typename VT > struct listNode {
   VT value;
 };
 
+template <typename VT> class List;
+template <typename VT> class ListItterator {
+private:
+  listNode<VT> *itterator = NULL;
+  List<VT> *selectedList = NULL;
+
+public:
+};
+
+
 template < typename VT > class List {
   protected:
     listNode < VT > * start = NULL, * end = NULL;
@@ -106,7 +116,7 @@ template < typename VT > class List {
     } // gets a value at the index
 
     VT operator[](const sizeT index) { return get(index); }
-    
+
     sizeT length() { return this->size; } // returns the length of the list
 };
 #endif
