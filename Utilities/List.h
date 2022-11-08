@@ -10,4 +10,13 @@ template <typename VT> struct listNode {
   listNode<VT> *Next = NULL, *Previous = NULL;
   VT value;
 };
+
+template <typename VT> class List {
+    protected:
+        listNode<VT> *start = NULL, *end = NULL;
+        sizeT size;
+    public:
+        List(){}
+        ~List(){}
+};
 #endif
