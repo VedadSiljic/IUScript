@@ -137,5 +137,7 @@ template < typename VT > class List {
     VT operator[](const sizeT index) { return get(index); }
 
     sizeT length() { return this->size; } // returns the length of the list
+
+    friend class ListItterator<VT>;
 };
 #endif
