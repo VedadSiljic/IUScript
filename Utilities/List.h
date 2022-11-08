@@ -18,6 +18,9 @@ private:
   List<VT> *selectedList = NULL;
 
 public:
+  ListItterator() {}
+  ListItterator(List<VT> *listToTrack) { trackList(listToTrack); }
+  ListItterator(List<VT> &listToTrack) { trackList(&listToTrack); }
 };
 
 
