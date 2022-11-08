@@ -14,7 +14,26 @@ template < typename VT > struct listNode {
 template < typename VT > class List {
   protected:
     listNode < VT > * start = NULL, * end = NULL;
-  sizeT size;
+    sizeT size;
+
+    listNode<VT> *getInstance(const sizeT index) {
+        if (index >= this->size)
+            throw "Invalid Index";
+        else {
+            listNode<VT> *temp;
+            if (index <= this->size / 2 - 1) {
+                temp = start;
+                for (unsigned int i = 0; i < index; i++)
+                temp = temp->Next;
+            } else {
+                temp = end;
+                for (unsigned int i = this->size - 1; i > index; i--)
+                temp = temp->Previous;
+            }
+
+            return temp;
+        }
+    }
   public:
     void Add(VT valueToAdd,
       const sizeT index) {
