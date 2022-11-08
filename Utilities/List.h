@@ -21,6 +21,12 @@ public:
   ListItterator() {}
   ListItterator(List<VT> *listToTrack) { trackList(listToTrack); }
   ListItterator(List<VT> &listToTrack) { trackList(&listToTrack); }
+
+  void operator++(int increment) {
+    if (itterator)
+      itterator = itterator->Next;
+  }
+  VT &operator*() { return itterator->value; }
 };
 
 
