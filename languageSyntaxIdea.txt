@@ -1,0 +1,47 @@
+IUScript Programming Language (SECURE!!)
+.ius file ending
+
+
+let const -declaration
+end of line ;
+
+
+fn main() {
+    return shit;
+}
+
+if () {}
+elseif () {}
+else{}
+
+for (let i = 1; i < 10; i++) {}
+while() {}
+switch() {}
+dowhile() {}
+
+let x = 1;
+let y = 2.0230;
+let text = "Hello World!";
+let test = false;
+const pi = 3.14;
+
+let list = [1, 2, 3];
+list.size;
+list[index];
+list.add(value, position);
+list.remove(remove);
+
+let vector = (x,y)
+vector.magnitude
+vector.direction
+vector.X
+vector.Y
+
+
+let movingDirection = ()
+IOManager.JoyStickResponse:Connect(fn (x,y){ movingDirection = (x,y)})
+
+let player = Sprite("./path/to/img", size)
+let winnerSFX = Sound("path",);
+winnderSFX.loudness
+winnerSFX::play();
