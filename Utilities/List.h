@@ -27,6 +27,16 @@ public:
       itterator = itterator->Next;
   }
   VT &operator*() { return itterator->value; }
+
+  void goToEnd() {
+    itterator = selectedList->end;
+  } // Set itterator to the staret
+  void goToStart() {
+    itterator = selectedList->start;
+  } // Set itterator to the end
+  bool ATE() { return itterator == selectedList->end; }   // At The End
+  bool ATS() { return itterator == selectedList->start; } // At The Start
+  bool outside() { return !itterator; }
 };
 
 
