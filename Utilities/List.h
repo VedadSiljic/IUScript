@@ -69,7 +69,17 @@ template < typename VT > class List {
   void Remove() {
     Remove(this -> size - 1);
   }
+
+  List(VT * array = NULL,
+    const sizeT size = 0) {
+    this -> size = 0;
+    for (sizeT i = 0; i < size; i++)
+      Add( * (array + i), this -> size);
+  }
   
-  List() {}~List() {}
+  ~List() {
+    while (!this -> size)
+      Remove();
+  }
 };
 #endif
