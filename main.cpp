@@ -1,38 +1,83 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "./Utilities/List.h"
 
-std::string read(std::string input) {
+List<char> read(List<char> &input)
+{
+
+    List<List<char>> commands;
+
     return input;
 }
 
-std::string eval(std::string input) {
+List<char> eval(List<char> &input)
+{
     return input;
 }
 
-std::string print (std::string input) {
+List<char> print(List<char> &input)
+{
     return input;
 }
 
-std::string rep(std::string input) {
-    std::string ast = read(input);
-    std::string result = eval(ast);
-    return print(result);
+List<char> rep(List<char> &input)
+{
+    try
+    {
+        List<char> ast = read(input);
+        //List<char> result = eval(ast);
+        //return print(result);
+        return input;
+    }
+    catch (char *e)
+    {
+        std::cout << "Error: \n";
+        while (*e++)
+            std::cout << *(--e);
+    }
 }
 
-int main() {
+int main()
+{
 
     std::ifstream main;
+    List<char> input;
+    char temp;
     main.open("main.ius");
-    if (!main.is_open()) {
+
+    if (!main.is_open())
+    {
         std::cout << "main.ius is missing.";
         return 1;
     }
-    std::string input;
-    while(!main.eof()) {
-        std::cout << "<user> ";
-        std::getline(main, input);
-        std::cout << rep(input) << std::endl;
+
+    while (!main.eof())
+    {
+        main >> temp;
+        if (temp != ';')
+            input.Add(temp);
+        else
+        {
+            std::cout << "<user> ";
+            for (ListItterator<char> i = input; !i.outside(); i++)
+                std::cout << *i;
+            std::cout << std::endl;
+            try
+            {
+                rep(input);
+            }
+            catch (char *e)
+            {
+                std::cout << "Error: \n";
+                while (*e++)
+                    std::cout << *(--e);
+            }
+            while (input.length())
+            {
+                input.Remove();
+            }
+        }
     }
 
     return 0;

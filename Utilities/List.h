@@ -18,6 +18,11 @@ private:
   List<VT> *selectedList = NULL;
 
 public:
+  void trackList(List<VT> *listToTrack) {
+    this->selectedList = listToTrack;
+    this->itterator = listToTrack->start;
+  }
+
   ListItterator() {}
   ListItterator(List<VT> *listToTrack) { trackList(listToTrack); }
   ListItterator(List<VT> &listToTrack) { trackList(&listToTrack); }
