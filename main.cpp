@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 
 std::string read(std::string input) {
     return input;
@@ -21,11 +22,16 @@ std::string rep(std::string input) {
 
 int main() {
 
+    std::ifstream main;
+    main.open("main.ius");
+    if (!main.is_open()) {
+        std::cout << "main.ius is missing.";
+        return 1;
+    }
     std::string input;
-    while(true) {
+    while(!main.eof()) {
         std::cout << "<user> ";
-        if (!std::getline(std::cin, input))
-            break;
+        std::getline(main, input);
         std::cout << rep(input) << std::endl;
     }
 
