@@ -18,6 +18,11 @@ private:
   List<VT> *selectedList = NULL;
 
 public:
+  void trackList(List<VT> *listToTrack) {
+    selectedList = listToTrack;
+    itterator = listToTrack->start;
+  }
+
   ListItterator() {}
   ListItterator(List<VT> *listToTrack) { trackList(listToTrack); }
   ListItterator(List<VT> &listToTrack) { trackList(&listToTrack); }
@@ -117,7 +122,13 @@ public:
   List(VT *array = NULL, const sizeT size = 0) {
     this->size = 0;
     for (sizeT i = 0; i < size; i++)
-      Add(*(array + i), this->size);
+      Add(*(array + i));
+  }
+
+  List(List<VT> &objToCopy) {
+    this->size = 0;
+    for (ListItterator<VT> i = objToCopy; !i.outside(); i++)
+      Add(*i);
   }
 
   ~List() {
