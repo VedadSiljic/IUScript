@@ -30,6 +30,7 @@
 # Executables
 *.exe
 *.out
-*.app
+*.apps
 
+build/
 .vscode
