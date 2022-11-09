@@ -31,6 +31,6 @@
 *.exe
 *.out
 *.apps
-*/build/
+build/
 
 .vscode
