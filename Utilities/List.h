@@ -119,6 +119,11 @@ public:
 
   void Remove() { Remove(this->size - 1); }
 
+  void clear() {
+    while (!this->size)
+      Remove();
+  }
+
   List(VT *array = NULL, const sizeT size = 0) {
     this->size = 0;
     for (sizeT i = 0; i < size; i++)
@@ -132,8 +137,7 @@ public:
   }
 
   ~List() {
-    while (!this->size)
-      Remove();
+    clear();
   }
 
   VT get(const sizeT index) {
