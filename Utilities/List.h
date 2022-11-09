@@ -120,7 +120,7 @@ public:
   void Remove() { Remove(this->size - 1); }
 
   void clear() {
-    while (!this->size)
+    while (this->size != 0)
       Remove();
   }
 
