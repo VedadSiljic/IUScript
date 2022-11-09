@@ -130,15 +130,22 @@ public:
       Add(*(array + i));
   }
 
-  List(List<VT> &objToCopy) {
+  void copyList(List<VT> &objToCopy) {
     this->size = 0;
+
     for (ListItterator<VT> i = objToCopy; !i.outside(); i++)
       Add(*i);
   }
 
-  ~List() {
+  List(List<VT> &objToCopy) { copyList(objToCopy); }
+
+  List<VT> &operator=(List<VT> &objToCopy) {
     clear();
+    copyList(objToCopy);
+    return *this;
   }
+
+  ~List() { clear(); }
 
   VT get(const sizeT index) {
     return this->getInstance(index)->value;
