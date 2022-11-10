@@ -1,4 +1,4 @@
-#include "list.h"
+#include "List.h"
 
 class string {
 protected:
