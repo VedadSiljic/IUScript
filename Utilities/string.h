@@ -24,5 +24,9 @@ public:
     this->str = objToCopy.str;
     return *this;
   }
+
   ~string() { str.clear(); }
-}
+
+  char &operator[](const sizeT index) { return this->str.get(index); }
+  sizeT lenght() { return this->str.length(); }
+};
