@@ -147,13 +147,15 @@ public:
 
   ~List() { clear(); }
 
-  VT& get(const sizeT index) {
+  VT &get(const sizeT index) {
     return this->getInstance(index)->value;
   } // gets a value at the index
 
-  VT& operator[](const sizeT index) { return get(index); }
+  VT &operator[](const sizeT index) { return get(index); }
 
   sizeT length() { return this->size; } // returns the length of the list
+
+  List<VT> &operator+(List<VT> &objToConcat) { return *this; }
 
   friend class ListItterator<VT>;
 };

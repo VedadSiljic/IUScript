@@ -29,4 +29,9 @@ public:
 
   char &operator[](const sizeT index) { return this->str.get(index); }
   sizeT lenght() { return this->str.length(); }
+
+  string &operator+(string &objToAdd){
+    return *this;
+  }
+
 };
