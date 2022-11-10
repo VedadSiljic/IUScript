@@ -11,5 +11,11 @@ public:
         str.Add(*charArray++);
   }
 
+  string(string &objToCopy) { this->str = objToCopy.str; }
+
+  string &operator=(string &objToCopy) {
+    this->str = objToCopy.str;
+    return *this;
+  }
   ~string() { str.clear(); }
 }
