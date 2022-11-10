@@ -155,8 +155,18 @@ public:
 
   sizeT length() { return this->size; } // returns the length of the list
 
-  List<VT> &operator+(List<VT> &objToConcat) { return *this; }
+  List<VT> operator+(List<VT> &objToConcat) {
+    List<VT> concatedLIST = *this;
+    for (ListItterator<VT> i = objToConcat; !i.outside(); i++)
+      concatedLIST.Add(*i);
+    return concatedLIST;
+  }
 
+  List<VT> &operator+=(List<VT> &objToConcat) {
+    for (ListItterator<VT> i = objToConcat; !i.outside(); i++)
+      this->Add(*i);
+    return *this;
+  }
   friend class ListItterator<VT>;
 };
 #endif
