@@ -13,7 +13,7 @@ template <typename VT> struct listNode {
 
 template <typename VT> class List;
 template <typename VT> class ListItterator {
-private:
+protected:
   listNode<VT> *itterator = NULL;
   List<VT> *selectedList = NULL;
 
@@ -42,6 +42,8 @@ public:
   bool ATE() { return itterator == selectedList->end; }   // At The End
   bool ATS() { return itterator == selectedList->start; } // At The Start
   bool outside() { return !itterator; }
+
+  friend List<VT>;
 };
 
 template <typename VT> class List {
@@ -155,8 +157,20 @@ public:
 
   sizeT length() { return this->size; } // returns the length of the list
 
-  List<VT> &operator+(List<VT> &objToConcat) { return *this; }
+  List<VT> operator+(List<VT> &objToConcat) {
+    List<VT> concatedLIST = *this;
+    for (ListItterator<VT> i = objToConcat; !i.outside(); i++)
+      concatedLIST.Add(*i);
+    return concatedLIST;
+  }
 
+  List<VT> &operator+=(List<VT> &objToConcat) {
+    listNode<VT> *end = objToConcat.end;
+    for (ListItterator<VT> i = objToConcat; i.itterator != end; i++)
+      this->Add(*i);
+    this->Add(end->value);
+    return *this;
+  }
   friend class ListItterator<VT>;
 };
 #endif
