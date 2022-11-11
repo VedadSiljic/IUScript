@@ -31,8 +31,7 @@ public:
   sizeT lenght() { return this->str.length(); }
 
   string operator+(string &objToAdd){
-    this->str.operator+(objToAdd.str);
-    return *this;
+    return this->str.operator+(objToAdd.str);;
   }
 
   string &operator+=(string &objToAdd){
