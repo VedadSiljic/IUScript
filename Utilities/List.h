@@ -163,6 +163,12 @@ public:
       concatedLIST.Add(*i);
     return concatedLIST;
   }
+  List<VT> operator+(List<VT> &objToConcat) {
+    List<VT> concatedLIST = *this;
+    for (ListItterator<VT> i = objToConcat; !i.outside(); i++)
+      concatedLIST.Add(*i);
+    return concatedLIST;
+  }
 
   List<VT> &operator+=(List<VT> &objToConcat) {
     listNode<VT> *end = objToConcat.end;

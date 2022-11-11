@@ -1,4 +1,4 @@
-#include "list.h"
+#include "List.h"
 
 class string {
 protected:
@@ -30,7 +30,13 @@ public:
   char &operator[](const sizeT index) { return this->str.get(index); }
   sizeT lenght() { return this->str.length(); }
 
-  string &operator+(string &objToAdd){
+  string operator+(string &objToAdd){
+    this->str.operator+(objToAdd.str);
+    return *this;
+  }
+
+  string &operator+=(string &objToAdd){
+    this->str.operator+=(objToAdd.str);
     return *this;
   }
 
